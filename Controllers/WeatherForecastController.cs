@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Test_API.Objects;
 using Test_API.Repository;
 using Test_API.Services;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -35,6 +36,14 @@ namespace Test_API.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+        [HttpGet("Location")]
+        public async Task<IActionResult> GetLocation(string place) {
+            Location Setting = await _weather.GetLocation(place);
+            if (Setting == null) {
+                return BadRequest("Location does not exist");
+            }
+            return Ok(Setting);
         }
     }
 }
