@@ -1,9 +1,11 @@
 ﻿using Test_API.Objects;
 using Test_API.Repository;
 using System.Linq;
+using System.Threading.Tasks;
+using Test_API.Controllers;
 namespace Test_API.Services
 {
-    public class Weather
+    public class Weather : IWeather
     {
         private readonly IData _data;
         public Weather(IData Data)
