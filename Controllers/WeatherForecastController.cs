@@ -18,7 +18,7 @@ namespace Test_API.Controllers
         private readonly IWeather _weather;
         private readonly IData _data;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,IWeather weather,IData data )
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeather weather, IData data)
         {
             _logger = logger;
             _weather = weather;
