@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Test_API.Repository;
+using Test_API.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Test_API.Controllers
 {
@@ -12,10 +15,14 @@ namespace Test_API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IWeather _weather;
+        private readonly IData _data;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, )
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeather weather, IData data )
         {
             _logger = logger;
+            _weather = weather;
+            _data = data;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
