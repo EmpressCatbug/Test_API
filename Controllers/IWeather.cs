@@ -2,7 +2,7 @@
 
 namespace Test_API.Controllers
 {
-    internal interface IWeather
+    public interface IWeather
     {
         Task<Location> GetLocation(string location);
     }
