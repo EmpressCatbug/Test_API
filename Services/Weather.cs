@@ -21,5 +21,16 @@ namespace Test_API.Services
 
             return locationObj;
         }
+        public async Task<Location> AddLocation(Location location)
+        {
+            string tableName = Environment.GetEnvironmentVariable("Location_Table");
+            string query = $"INSERT INTO {tableName} (Setting) VALUES (@Setting) RETURNING ID;";
+
+            var parameters = new { Setting = location.Setting };
+            var insertedId = await _data.ExecuteCommandAsync(query, parameters);
+
+            location.ID = insertedId;
+            return location;
+        }
     }
 }
