@@ -4,5 +4,7 @@
     {
         public long ID { get; set; }
         public int Value { get; set; }
+        public string Setting { get; set; }
+
     }
 }
